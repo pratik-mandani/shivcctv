@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { Phone, MessageSquare, Shield, Menu, X, Clock } from 'lucide-react';
+import { assetUrl } from '@/utils/asset';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -46,7 +47,7 @@ export default function Header() {
             <a href="#" className="flex items-center gap-3">
               <div className="relative w-40 sm:w-48 h-12">
                 <Image
-                  src="/images/logo.png"
+                  src={assetUrl('/images/logo.png')}
                   alt="Shiv CCTV & Security"
                   fill
                   className="object-contain object-left"

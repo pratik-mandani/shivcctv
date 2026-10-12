@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Phone, MessageSquare, Shield, Clock } from 'lucide-react';
+import { assetUrl } from '@/utils/asset';
 
 export default function Footer() {
   return (
@@ -14,7 +15,7 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="relative w-44 h-12">
               <Image
-                src="/images/logo.png"
+                src={assetUrl('/images/logo.png')}
                 alt="Shiv CCTV & Security"
                 fill
                 className="object-contain object-left brightness-200 contrast-200 invert"

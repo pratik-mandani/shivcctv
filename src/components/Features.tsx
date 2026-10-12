@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Smartphone, Bell, Moon, Mic, HardDrive, CheckCircle } from 'lucide-react';
+import { assetUrl } from '@/utils/asset';
 
 export default function Features() {
   return (
@@ -67,7 +68,7 @@ export default function Features() {
             <div className="lg:col-span-6">
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-700 shadow-xl group">
                 <Image
-                  src="/images/night-vision.jpg"
+                  src={assetUrl('/images/night-vision.jpg')}
                   alt="Shiv CCTV Color Night Vision Technology"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"

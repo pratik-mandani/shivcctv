@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { ShieldCheck, Phone, MessageSquare, CheckCircle2, ArrowRight, Smartphone, Wifi } from 'lucide-react';
+import { assetUrl } from '@/utils/asset';
 
 export default function Hero() {
   const [quickCam, setQuickCam] = useState('4 Cameras Setup');
@@ -158,7 +159,7 @@ export default function Hero() {
             <div className="relative mx-auto max-w-md lg:max-w-none rounded-3xl overflow-hidden border border-slate-700/60 shadow-2xl shadow-blue-900/30 group">
               <div className="relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] w-full">
                 <Image
-                  src="/images/hero-banner.jpg"
+                  src={assetUrl('/images/hero-banner.jpg')}
                   alt="Shiv CCTV Security Camera with Mobile App"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"

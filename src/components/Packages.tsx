@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Check, MessageSquare, Phone, ShieldCheck, Zap } from 'lucide-react';
+import { assetUrl } from '@/utils/asset';
 
 interface PackageItem {
   id: string;
@@ -126,7 +127,7 @@ export default function Packages() {
                 {/* Package Product Image */}
                 <div className="relative aspect-[4/3] w-full bg-slate-100 overflow-hidden">
                   <Image
-                    src={pkg.image}
+                    src={assetUrl(pkg.image)}
                     alt={pkg.title}
                     fill
                     className="object-cover hover:scale-105 transition-transform duration-500"

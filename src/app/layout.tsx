@@ -28,11 +28,11 @@ export const metadata: Metadata = {
     title: "Shiv CCTV & Security - Protect What Matters Most",
     description:
       "Get complete HD & 4K CCTV camera setup with mobile live view & free installation. Contact on WhatsApp: +91 832 056 1064.",
-    url: "https://shivcctv.github.io/",
+    url: "https://pratik-mandani.github.io/shivcctv/",
     siteName: "Shiv CCTV & Security",
     images: [
       {
-        url: "https://shivcctv.github.io/images/hero-banner.jpg",
+        url: "https://pratik-mandani.github.io/shivcctv/images/hero-banner.jpg",
         width: 1200,
         height: 675,
         alt: "Shiv CCTV & Security Installation",
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: {
-    icon: "/favicon.png",
-    apple: "/favicon.png",
+    icon: "/shivcctv/favicon.png",
+    apple: "/shivcctv/favicon.png",
   },
 };
 

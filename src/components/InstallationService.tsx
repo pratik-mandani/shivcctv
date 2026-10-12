@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Wrench, Award, Clock, MessageSquare, Phone } from 'lucide-react';
+import { assetUrl } from '@/utils/asset';
 
 export default function InstallationService() {
   const points = [
@@ -36,7 +37,7 @@ export default function InstallationService() {
           <div className="lg:col-span-6 relative">
             <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-slate-700 shadow-2xl group">
               <Image
-                src="/images/technician-service.jpg"
+                src={assetUrl('/images/technician-service.jpg')}
                 alt="Shiv CCTV Certified Installation Technician at Work"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
