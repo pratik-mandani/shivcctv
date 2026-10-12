@@ -15,10 +15,10 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="relative w-44 h-12">
               <Image
-                src={assetUrl('/images/logo.png')}
+                src={assetUrl('/images/logo-white.png')}
                 alt="Shiv CCTV & Security"
                 fill
-                className="object-contain object-left brightness-200 contrast-200 invert"
+                className="object-contain object-left"
               />
             </div>
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
