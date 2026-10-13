@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Phone, MessageSquare, CheckCircle, ShieldCheck, MapPin, User } from 'lucide-react';
+import { trackPhoneConversion, trackWhatsAppConversion } from '@/utils/analytics';
 
 export default function LeadForm() {
   const [formData, setFormData] = useState({
@@ -22,14 +23,8 @@ export default function LeadForm() {
       return;
     }
 
-    // Trigger Meta Pixel Lead event
-    if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('track', 'Lead', {
-        content_name: 'Lead Form Submission',
-        property_type: formData.propertyType,
-        camera_count: formData.cameraCount,
-      });
-    }
+    // Trigger Google Ads conversion and Meta Pixel Lead event
+    trackWhatsAppConversion(`Lead Form: ${formData.propertyType} - ${formData.cameraCount}`);
 
     // Pre-format message for WhatsApp
     const message = `🚨 *NEW CCTV INQUIRY - SHIV CCTV* 🚨\n\n` +
@@ -92,6 +87,7 @@ export default function LeadForm() {
                 </div>
                 <a
                   href="tel:+918320561064"
+                  onClick={trackPhoneConversion}
                   className="mt-2 flex items-center gap-2 text-white font-bold text-lg hover:text-blue-400 transition-colors"
                 >
                   <Phone className="w-5 h-5 text-emerald-400" />

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { ShieldCheck, Phone, MessageSquare, CheckCircle2, ArrowRight, Smartphone, Wifi } from 'lucide-react';
 import { assetUrl } from '@/utils/asset';
+import { trackPhoneConversion, trackWhatsAppConversion } from '@/utils/analytics';
 
 export default function Hero() {
   const [quickCam, setQuickCam] = useState('4 Cameras Setup');
@@ -16,9 +17,7 @@ export default function Hero() {
       return;
     }
 
-    if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('track', 'Lead');
-    }
+    trackWhatsAppConversion(`Quick Quote: ${quickCam}`);
 
     const msg = `🚨 *New Quick Inquiry - Shiv CCTV*\n📹 *Setup Selected:* ${quickCam}\n📱 *Mobile Number:* ${quickPhone}\n\nPlease share price quotation and free site visit details.`;
     const waUrl = `https://wa.me/918320561064?text=${encodeURIComponent(msg)}`;
@@ -78,6 +77,7 @@ export default function Hero() {
                 href="https://wa.me/918320561064?text=Hello%20Shiv%20CCTV,%20I%20am%20interested%20in%20CCTV%20Installation.%20Please%20send%20packages%20and%20offers."
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppConversion('Hero WhatsApp Quote Button')}
                 className="w-full sm:w-auto px-7 py-4 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-base shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-3 transition-all hover:scale-105"
               >
                 <MessageSquare className="w-5 h-5 fill-white" />
@@ -86,6 +86,7 @@ export default function Hero() {
 
               <a
                 href="tel:+918320561064"
+                onClick={trackPhoneConversion}
                 className="w-full sm:w-auto px-6 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-bold text-base flex items-center justify-center gap-2 transition-all"
               >
                 <Phone className="w-5 h-5 text-blue-400" />

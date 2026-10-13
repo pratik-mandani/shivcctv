@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Wrench, Award, Clock, MessageSquare, Phone } from 'lucide-react';
 import { assetUrl } from '@/utils/asset';
+import { trackPhoneConversion, trackWhatsAppConversion } from '@/utils/analytics';
 
 export default function InstallationService() {
   const points = [
@@ -100,6 +101,7 @@ export default function InstallationService() {
                 href="https://wa.me/918320561064?text=Hello%20Shiv%20CCTV,%20I%20would%20like%20to%20schedule%20a%20Free%20Site%20Survey%20for%20CCTV%20installation."
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppConversion('Installation Free Site Survey')}
                 className="px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm shadow-lg flex items-center justify-center gap-2 transition-all hover:scale-105"
               >
                 <MessageSquare className="w-4 h-4 fill-white" />
@@ -108,6 +110,7 @@ export default function InstallationService() {
 
               <a
                 href="tel:+918320561064"
+                onClick={trackPhoneConversion}
                 className="px-5 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-semibold text-sm flex items-center justify-center gap-2 transition-colors"
               >
                 <Phone className="w-4 h-4 text-blue-400" />

@@ -2,18 +2,15 @@
 
 import React from 'react';
 import { Phone, MessageSquare } from 'lucide-react';
+import { trackPhoneConversion, trackWhatsAppConversion } from '@/utils/analytics';
 
 export default function MobileStickyBar() {
   const handleWhatsApp = () => {
-    if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('track', 'Contact', { content_name: 'Mobile Sticky WhatsApp' });
-    }
+    trackWhatsAppConversion('Mobile Sticky Bar WhatsApp');
   };
 
   const handleCall = () => {
-    if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('track', 'Contact', { content_name: 'Mobile Sticky Call' });
-    }
+    trackPhoneConversion();
   };
 
   return (

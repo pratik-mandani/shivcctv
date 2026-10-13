@@ -2,14 +2,13 @@
 
 import React, { useState } from 'react';
 import { MessageSquare, X } from 'lucide-react';
+import { trackWhatsAppConversion } from '@/utils/analytics';
 
 export default function FloatingWhatsApp() {
   const [showTooltip, setShowTooltip] = useState(true);
 
   const handleClick = () => {
-    if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('track', 'Contact', { content_name: 'Floating WhatsApp' });
-    }
+    trackWhatsAppConversion('Floating WhatsApp Widget');
     window.open(
       'https://wa.me/918320561064?text=Hello%20Shiv%20CCTV,%20I%20am%20interested%20in%20CCTV%20Installation.%20Please%20share%20details.',
       '_blank'

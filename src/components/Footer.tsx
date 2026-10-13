@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Phone, MessageSquare, Shield, Clock } from 'lucide-react';
 import { assetUrl } from '@/utils/asset';
+import { trackPhoneConversion, trackWhatsAppConversion } from '@/utils/analytics';
 
 export default function Footer() {
   return (
@@ -73,6 +74,7 @@ export default function Footer() {
               <li>
                 <a
                   href="tel:+918320561064"
+                  onClick={trackPhoneConversion}
                   className="flex items-center gap-2.5 text-white font-semibold hover:text-blue-400 transition-colors"
                 >
                   <Phone className="w-4 h-4 text-blue-400 shrink-0" />
@@ -84,6 +86,7 @@ export default function Footer() {
                   href="https://wa.me/918320561064?text=Hello%20Shiv%20CCTV,%20I%20have%20an%20inquiry."
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppConversion('Footer WhatsApp Chat')}
                   className="flex items-center gap-2.5 text-emerald-400 font-semibold hover:underline"
                 >
                   <MessageSquare className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -107,6 +110,7 @@ export default function Footer() {
               href="https://wa.me/918320561064?text=Hello%20Shiv%20CCTV,%20I%20am%20interested%20in%20CCTV%20Installation."
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWhatsAppConversion('Footer Quick Assistance Box')}
               className="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors"
             >
               <MessageSquare className="w-4 h-4 fill-white" />

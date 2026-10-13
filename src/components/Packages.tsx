@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Check, MessageSquare, Phone, ShieldCheck, Zap } from 'lucide-react';
 import { assetUrl } from '@/utils/asset';
+import { trackPhoneConversion, trackWhatsAppConversion } from '@/utils/analytics';
 
 interface PackageItem {
   id: string;
@@ -79,9 +80,7 @@ const packages: PackageItem[] = [
 
 export default function Packages() {
   const triggerTracking = (pkgName: string) => {
-    if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('track', 'Lead', { content_name: pkgName });
-    }
+    trackWhatsAppConversion(pkgName);
   };
 
   return (
@@ -181,6 +180,7 @@ export default function Packages() {
 
                 <a
                   href="tel:+918320561064"
+                  onClick={trackPhoneConversion}
                   className="w-full py-2.5 px-4 rounded-xl font-semibold text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 flex items-center justify-center gap-1.5 transition-colors"
                 >
                   <Phone className="w-3.5 h-3.5 text-blue-600" />
